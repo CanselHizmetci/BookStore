@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Common;
@@ -15,23 +16,27 @@ namespace WebApi.BookOperations.GetById
     {
         public BookViewModel Model { get; set; }
         private readonly BookStoreDbContext _dbContext;
+        public int BookId { get; set; }
+        private readonly IMapper _mapper;
 
-        public GetByIdQuery(BookStoreDbContext dbContext)
+        public GetByIdQuery(BookStoreDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
+            _mapper = mapper;
         }
 
         public BookViewModel Handle(int id)
         {
-            var book = _dbContext.Books.Where(c => c.Id == id).FirstOrDefault();
+            var book = _dbContext.Books.Where(c => c.Id == BookId).FirstOrDefault();
             if (book is null)
                 throw new InvalidOperationException("Kitap Bulunamadı");
 
-            Model = new BookViewModel();
-            Model.Title = book.Title;
+            Model = _mapper.Map<BookViewModel>(book);//new BookViewModel();
+
+            /*Model.Title = book.Title;
             Model.PageCount = book.PageCount;
             Model.Genre = ((GenreEnum)book.GenreId).ToString();
-            Model.PublishDate = book.PublishDate.Date.ToString("dd/MM/yyy");
+            Model.PublishDate = book.PublishDate.Date.ToString("dd/MM/yyy");*/
             return Model;
         }
 

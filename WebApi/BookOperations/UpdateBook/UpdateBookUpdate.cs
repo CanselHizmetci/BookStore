@@ -13,6 +13,7 @@ namespace WebApi.BookOperations.UpdateBook
     public class UpdateBookUpdate
     {
         public UpdateBookModel Model { get; set; }
+        public int BookId { get; set; }
         private readonly BookStoreDbContext _dbContext;
 
         public UpdateBookUpdate(BookStoreDbContext dbContext)
@@ -21,7 +22,7 @@ namespace WebApi.BookOperations.UpdateBook
         }
         public void Handle(int id)
         {
-            var book = _dbContext.Books.FirstOrDefault(c => c.Id == id);
+            var book = _dbContext.Books.FirstOrDefault(c => c.Id == BookId);
             if (book is null)
                 throw new InvalidOperationException("Güncellemek istediğiniz kitap mevcut değil");
             book.GenreId = Model.GenreId != default ? Model.GenreId : book.GenreId;
