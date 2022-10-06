@@ -21,15 +21,18 @@ namespace WebApi.BookOperations.GetById
             _dbContext = dbContext;
         }
 
-        public Book Handle(int id)
+        public BookViewModel Handle(int id)
         {
             var book = _dbContext.Books.Where(c => c.Id == id).FirstOrDefault();
+            if (book is null)
+                throw new InvalidOperationException("Kitap Bulunamadı");
+
             Model = new BookViewModel();
             Model.Title = book.Title;
             Model.PageCount = book.PageCount;
             Model.Genre = ((GenreEnum)book.GenreId).ToString();
             Model.PublishDate = book.PublishDate.Date.ToString("dd/MM/yyy");
-            return book;
+            return Model;
         }
 
         public class BookViewModel

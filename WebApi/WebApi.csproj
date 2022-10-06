@@ -21,6 +21,7 @@
     <None Remove="BookOperations\CreateBook\" />
     <None Remove="BookOperations\UpdateBook\" />
     <None Remove="BookOperations\GetById\" />
+    <None Remove="BookOperations\DeleteBook\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -31,5 +32,6 @@
     <Folder Include="BookOperations\CreateBook\" />
     <Folder Include="BookOperations\UpdateBook\" />
     <Folder Include="BookOperations\GetById\" />
+    <Folder Include="BookOperations\DeleteBook\" />
   </ItemGroup>
 </Project>
