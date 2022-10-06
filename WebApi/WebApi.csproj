@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Controllers\" />
+    <None Remove="Microsoft.EntityFrameworkCore" />
+    <None Remove="Microsoft.EntityFrameworkCore.InMemory" />
+    <None Remove="DBOperations\" />
+    <None Remove="BookOperations\" />
+    <None Remove="BookOperations\GetBooks\" />
+    <None Remove="Common\" />
+    <None Remove="BookOperations\CreateBook\" />
+    <None Remove="BookOperations\UpdateBook\" />
+    <None Remove="BookOperations\GetById\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="DBOperations\" />
+    <Folder Include="BookOperations\" />
+    <Folder Include="BookOperations\GetBooks\" />
+    <Folder Include="Common\" />
+    <Folder Include="BookOperations\CreateBook\" />
+    <Folder Include="BookOperations\UpdateBook\" />
+    <Folder Include="BookOperations\GetById\" />
+  </ItemGroup>
+</Project>
