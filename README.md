@@ -1,2 +1,2 @@
 # BookStore
-www.patika.dev .net Core Model Kullanımı Ödevi
+www.patika.dev .net Core Model Validasyon Ödevi
