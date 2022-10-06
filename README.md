@@ -1,2 +1,2 @@
 # BookStore
-Patika.dev .net Core Eğitimleri BookStore Ödevi www.patika.dev
+www.patika.dev .net Core Eğitimleri BookStore Ödevi 
