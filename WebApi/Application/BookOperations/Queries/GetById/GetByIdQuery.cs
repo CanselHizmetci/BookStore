@@ -27,7 +27,7 @@ namespace WebApi.BookOperations.GetById
 
         public BookViewModel Handle(int id)
         {
-            var book = _dbContext.Books.Where(c => c.Id == BookId).FirstOrDefault();
+            var book = _dbContext.Books.Include(c=> c.Genre).Include(c=>c.Author).Where(c => c.Id == BookId).FirstOrDefault();
             if (book is null)
                 throw new InvalidOperationException("Kitap Bulunamadı");
 
@@ -39,6 +39,7 @@ namespace WebApi.BookOperations.GetById
             Model.PublishDate = book.PublishDate.Date.ToString("dd/MM/yyy");*/
             return Model;
         }
+    }
 
         public class BookViewModel
         {
@@ -46,7 +47,7 @@ namespace WebApi.BookOperations.GetById
             public int PageCount { get; set; }
             public string PublishDate { get; set; }
             public string Genre { get; set; }
-        }
+            public string Author { get; set; }
     }
 }
 

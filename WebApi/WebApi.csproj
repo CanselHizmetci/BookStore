@@ -11,6 +11,7 @@
     <PackageReference Include="AutoMapper" Version="12.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="FluentValidation" Version="11.2.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,26 +19,69 @@
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="Microsoft.EntityFrameworkCore.InMemory" />
     <None Remove="DBOperations\" />
-    <None Remove="BookOperations\" />
-    <None Remove="BookOperations\GetBooks\" />
     <None Remove="Common\" />
-    <None Remove="BookOperations\CreateBook\" />
-    <None Remove="BookOperations\UpdateBook\" />
-    <None Remove="BookOperations\GetById\" />
-    <None Remove="BookOperations\DeleteBook\" />
     <None Remove="AutoMapper" />
     <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
     <None Remove="FluentValidation" />
+    <None Remove="Middlewares\" />
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="Services\" />
+    <None Remove="Entities\" />
+    <None Remove="Application\" />
+    <None Remove="Application\BookOperations\" />
+    <None Remove="Application\GenreOperations\" />
+    <None Remove="Application\BookOperations\Commands\" />
+    <None Remove="Application\BookOperations\Commands\CreateBook\" />
+    <None Remove="Application\BookOperations\Commands\UpdateBook\" />
+    <None Remove="Application\BookOperations\Commands\DeleteBook\" />
+    <None Remove="Application\BookOperations\Queries\" />
+    <None Remove="Application\BookOperations\Queries\GetBooks\" />
+    <None Remove="Application\BookOperations\Queries\GetById\" />
+    <None Remove="Application\GenreOperations\Queries\" />
+    <None Remove="Application\GenreOperations\Queries\GetGenres\" />
+    <None Remove="Application\GenreOperations\Queries\GetGenreDetail\" />
+    <None Remove="Application\GenreOperations\Commands\CreateGenre\" />
+    <None Remove="Application\GenreOperations\Commands\DeleteGenre\" />
+    <None Remove="Application\GenreOperations\Commands\UpdateGenre\" />
+    <None Remove="Application\AuthorOperations\" />
+    <None Remove="Application\AuthorOperations\Commands\" />
+    <None Remove="Application\AuthorOperations\Queries\" />
+    <None Remove="Application\AuthorOperations\Commands\CreateAuthor\" />
+    <None Remove="Application\AuthorOperations\Commands\DeleteBook\" />
+    <None Remove="Application\AuthorOperations\Commands\UpdateAuthor\" />
+    <None Remove="Application\AuthorOperations\Queries\GetAuthors\" />
+    <None Remove="Application\AuthorOperations\Queries\GetAuthorDetail\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="DBOperations\" />
-    <Folder Include="BookOperations\" />
-    <Folder Include="BookOperations\GetBooks\" />
     <Folder Include="Common\" />
-    <Folder Include="BookOperations\CreateBook\" />
-    <Folder Include="BookOperations\UpdateBook\" />
-    <Folder Include="BookOperations\GetById\" />
-    <Folder Include="BookOperations\DeleteBook\" />
+    <Folder Include="Middlewares\" />
+    <Folder Include="Services\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Application\" />
+    <Folder Include="Application\BookOperations\" />
+    <Folder Include="Application\GenreOperations\" />
+    <Folder Include="Application\BookOperations\Commands\" />
+    <Folder Include="Application\BookOperations\Commands\CreateBook\" />
+    <Folder Include="Application\BookOperations\Commands\UpdateBook\" />
+    <Folder Include="Application\BookOperations\Commands\DeleteBook\" />
+    <Folder Include="Application\BookOperations\Queries\" />
+    <Folder Include="Application\BookOperations\Queries\GetBooks\" />
+    <Folder Include="Application\BookOperations\Queries\GetById\" />
+    <Folder Include="Application\GenreOperations\Queries\" />
+    <Folder Include="Application\GenreOperations\Queries\GetGenres\" />
+    <Folder Include="Application\GenreOperations\Queries\GetGenreDetail\" />
+    <Folder Include="Application\GenreOperations\Command\CreateGenre\" />
+    <Folder Include="Application\GenreOperations\Command\DeleteGenre\" />
+    <Folder Include="Application\GenreOperations\Command\UpdateGenre\" />
+    <Folder Include="Application\AuthorOperations\" />
+    <Folder Include="Application\AuthorOperations\Commands\" />
+    <Folder Include="Application\AuthorOperations\Queries\" />
+    <Folder Include="Application\AuthorOperations\Commands\CreateAuthor\" />
+    <Folder Include="Application\AuthorOperations\Commands\DeleteAuthor\" />
+    <Folder Include="Application\AuthorOperations\Commands\UpdateAuthor\" />
+    <Folder Include="Application\AuthorOperations\Queries\GetAuthors\" />
+    <Folder Include="Application\AuthorOperations\Queries\GetAuthorDetail\" />
   </ItemGroup>
 </Project>
