@@ -1,2 +1,2 @@
 # BookStore
-www.patika.dev .net Core Model Validasyon Ödevi
+www.patika.dev .net Core Author Controller Eklenmesi
