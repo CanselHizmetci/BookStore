@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.Application.GenreOperations.Commands;
 using WebApi.Application.GenreOperations.Commands.CreateGenre;
 using WebApi.Application.GenreOperations.Commands.DeleteGenre;
 using WebApi.Application.GenreOperations.Commands.UpdateGenre;
 using WebApi.Application.GenreOperations.Queries.GetGenreDetail;
 using WebApi.Application.GenreOperations.Queries.GetGenres;
 using WebApi.DBOperations;
-using static WebApi.Application.GenreOperations.Commands.UpdateGenre.UpdateGenreCommand;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,11 +16,11 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     public class GenreController : ControllerBase
     {
-        private readonly BookStoreDbContext _context;
+        private readonly IBookStoreDbContext _context;
 
         private readonly IMapper _mapper;
 
-        public GenreController(BookStoreDbContext context, IMapper mapper)
+        public GenreController(IBookStoreDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -35,7 +30,7 @@ namespace WebApi.Controllers
 
         public ActionResult GetGenres()
         {
-            GetGenreQuery query = new GetGenreQuery(_context, _mapper);
+            GetGenresQuery query = new GetGenresQuery(_context, _mapper);
             var obj = query.Handle();
             return Ok(obj);
         }

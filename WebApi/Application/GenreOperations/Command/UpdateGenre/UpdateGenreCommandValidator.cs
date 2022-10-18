@@ -7,7 +7,8 @@ namespace WebApi.Application.GenreOperations.Commands.UpdateGenre
     {
         public UpdateGenreCommandValidator()
         {
-            RuleFor(c => c.Model.Name).MinimumLength(4).When(c => c.Model.Name.Trim() != string.Empty);
+            RuleFor(c => c.GenreId).GreaterThan(0);
+            RuleFor(c => c.Model.Name).NotEmpty().MinimumLength(4);
         }
     }
 }

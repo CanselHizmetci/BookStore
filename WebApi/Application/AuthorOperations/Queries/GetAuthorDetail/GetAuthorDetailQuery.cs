@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using AutoMapper;
-using WebApi.BookOperations.GetById;
 using WebApi.DBOperations;
 
 namespace WebApi.Application.AuthorOperations.Queries.GetAuthorDetail
@@ -10,10 +9,10 @@ namespace WebApi.Application.AuthorOperations.Queries.GetAuthorDetail
     {
         public AuthorViewModel Model { get; set; }
         public int AuthorId { get; set; }
-        private readonly BookStoreDbContext _context;
+        private readonly IBookStoreDbContext _context;
         private readonly IMapper _mapper;
 
-        public GetAuthorDetailQuery(BookStoreDbContext context, IMapper mapper)
+        public GetAuthorDetailQuery(IBookStoreDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;

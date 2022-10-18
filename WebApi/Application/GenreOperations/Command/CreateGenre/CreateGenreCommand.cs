@@ -3,14 +3,14 @@ using System.Linq;
 using WebApi.DBOperations;
 using WebApi.Entities;
 
-namespace WebApi.Application.GenreOperations.Commands
+namespace WebApi.Application.GenreOperations.Commands.CreateGenre
 {
     public class CreateGenreCommand
     {
         public CreateGenreModel Model { get; set; }
-        private readonly BookStoreDbContext _context;
+        private readonly IBookStoreDbContext _context;
 
-        public CreateGenreCommand(BookStoreDbContext context)
+        public CreateGenreCommand(IBookStoreDbContext context)
         {
             _context = context;
         }
@@ -19,7 +19,7 @@ namespace WebApi.Application.GenreOperations.Commands
         {
             var genre = _context.Genres.SingleOrDefault(c => c.Name == Model.Name);
             if (genre is not null)
-                throw new InvalidOperationException("Kitap zaten mevcut");
+                throw new InvalidOperationException("Tür zaten mevcut");
 
             genre = new Genre();
             genre.Name = Model.Name;

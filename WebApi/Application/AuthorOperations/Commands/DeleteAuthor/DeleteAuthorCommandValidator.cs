@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using FluentValidation;
 
 namespace WebApi.Application.AuthorOperations.Commands.DeleteAuthor

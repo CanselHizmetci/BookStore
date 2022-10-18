@@ -1,23 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
 using WebApi.DBOperations;
 using WebApi.Entities;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace WebApi.Application.AuthorOperations.Commands.CreateAuthor
 {
-    public class CreateAuthorCommand : ControllerBase
+    public class CreateAuthorCommand
     {
         public CreateAuthorModel Model { get; set; }
-        private readonly BookStoreDbContext _context;
+        private readonly IBookStoreDbContext _context;
         private readonly IMapper _mapper;
 
-        public CreateAuthorCommand(BookStoreDbContext context, IMapper mapper)
+        public CreateAuthorCommand(IBookStoreDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -25,7 +20,7 @@ namespace WebApi.Application.AuthorOperations.Commands.CreateAuthor
 
         public void Handle()
         {
-            var author = _context.Authors.SingleOrDefault(c => c.Name == Model.Name);
+            var author = _context.Authors.SingleOrDefault(c => c.Name == Model.Name  && c.Surname==Model.Surname);
             if (author is not null)
                 throw new InvalidOperationException("Yazar zaten mevcut");
 

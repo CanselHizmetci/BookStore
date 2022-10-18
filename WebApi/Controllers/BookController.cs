@@ -1,32 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using AutoMapper;
 using FluentValidation;
-using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.BookOperations.CreateBook;
-using WebApi.BookOperations.DeleteBook;
-using WebApi.BookOperations.GetBooks;
-using WebApi.BookOperations.GetById;
-using WebApi.BookOperations.UpdateBook;
+using WebApi.Application.BookOperations.Commands.CreateBook;
+using WebApi.Application.BookOperations.Commands.DeleteBook;
+using WebApi.Application.BookOperations.Commands.UpdateBook;
+using WebApi.Application.BookOperations.Queries.GetBooks;
+using WebApi.Application.BookOperations.Queries.GetById;
 using WebApi.DBOperations;
-using static WebApi.BookOperations.CreateBook.CreateBookCommand;
-using static WebApi.BookOperations.GetById.GetByIdQuery;
-using static WebApi.BookOperations.UpdateBook.UpdateBookUpdate;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
-    public class BookController : Controller
+    public class BookController : ControllerBase
     {
-        private readonly BookStoreDbContext _context;
+        private readonly IBookStoreDbContext _context;
 
         private readonly IMapper _mapper;
-        public BookController(BookStoreDbContext context, IMapper mapper)
+        public BookController(IBookStoreDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -52,7 +45,7 @@ namespace WebApi.Controllers
                 query.BookId = id;
                 GetByIdQueryValidator validator = new GetByIdQueryValidator();
                 validator.ValidateAndThrow(query);
-                result = query.Handle(id);
+                result = query.Handle();
             //}
             // catch(Exception ex)
             //{
@@ -98,7 +91,7 @@ namespace WebApi.Controllers
                 update.BookId = id;
                 UpdateBookUpdateValidator validator = new UpdateBookUpdateValidator();
                 validator.ValidateAndThrow(update);
-                update.Handle(id);
+                update.Handle();
            // }
            /* catch(Exception ex)
             {

@@ -1,0 +1,59 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="3.1.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Moq" Version="4.18.2" />
+    <PackageReference Include="FluentAssertions" Version="6.7.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Moq" />
+    <None Remove="FluentAssertions" />
+    <None Remove="Microsoft.EntityFrameworkCore.InMemory" />
+    <None Remove="Microsoft.EntityFrameworkCore" />
+    <None Remove="Application\BookOperations\Commands\" />
+    <None Remove="Application\AuthorOperations\" />
+    <None Remove="Application\BookOperations\Queries\" />
+    <None Remove="Application\BookOperations\Commands\DeleteBook\" />
+    <None Remove="Application\BookOperations\Commands\UpdateBook\" />
+    <None Remove="Application\BookOperations\Queries\GetById\" />
+    <None Remove="Application\AuthorOperations\Commands\" />
+    <None Remove="Application\AuthorOperations\Queries\" />
+    <None Remove="Application\GenreOperations\Commands\" />
+    <None Remove="Application\GenreOperations\Queries\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WebApi\WebApi.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Application\BookOperations\Commands\" />
+    <Folder Include="Application\AuthorOperations\" />
+    <Folder Include="Application\BookOperations\Queries\" />
+    <Folder Include="Application\BookOperations\Commands\DeleteBook\" />
+    <Folder Include="Application\BookOperations\Commands\UpdateBook\" />
+    <Folder Include="Application\BookOperations\Queries\GetById\" />
+    <Folder Include="Application\AuthorOperations\Commands\" />
+    <Folder Include="Application\AuthorOperations\Queries\" />
+    <Folder Include="Application\GenreOperations\Commands\" />
+    <Folder Include="Application\GenreOperations\Queries\" />
+  </ItemGroup>
+</Project>

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using WebApi.DBOperations;
-using WebApi.Entities;
 
 namespace WebApi.Application.AuthorOperations.Commands.UpdateAuthor
 {
@@ -9,9 +8,9 @@ namespace WebApi.Application.AuthorOperations.Commands.UpdateAuthor
     {
         public int AuthorId { get; set; }
         public UpdateAuthorModel Model { get; set; }
-        private readonly BookStoreDbContext _context;
+        private readonly IBookStoreDbContext _context;
 
-        public UpdateAuthorCommand(BookStoreDbContext context)
+        public UpdateAuthorCommand(IBookStoreDbContext context)
         {
             _context = context;
         }
@@ -20,10 +19,11 @@ namespace WebApi.Application.AuthorOperations.Commands.UpdateAuthor
         {
             var author = _context.Authors.FirstOrDefault(c => c.Id == AuthorId);
             if (author is null)
-                throw new InvalidOperationException("Güncellemek istediğiniz kitap mevcut değil");
+                throw new InvalidOperationException("Güncellemek istediğiniz yazar mevcut değil");
 
-            author.Name= String.IsNullOrEmpty(Model.Name.Trim()) ? author.Name : Model.Name;
-            author.Surname = String.IsNullOrEmpty(Model.Surname.Trim()) ? author.Name : Model.Surname;
+            author.Name= string.IsNullOrEmpty(Model.Name.Trim()) ? author.Name : Model.Name;
+            author.Surname = string.IsNullOrEmpty(Model.Surname.Trim()) ? author.Name : Model.Surname;
+            author.BirthDate = Model.BirthDate == default ? author.BirthDate : Model.BirthDate;
 
             _context.SaveChanges();
         }
@@ -32,6 +32,7 @@ namespace WebApi.Application.AuthorOperations.Commands.UpdateAuthor
     {
         public string Name { get; set; }
         public string Surname { get; set; }
+        public DateTime BirthDate { get; set; }
     }
 }
 

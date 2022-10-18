@@ -8,9 +8,9 @@ namespace WebApi.Application.GenreOperations.Commands.UpdateGenre
     {
         public int GenreId { get; set; }
         public UpdateGenreModel Model { get; set; }
-        private readonly BookStoreDbContext _context;
+        private readonly IBookStoreDbContext _context;
        
-        public UpdateGenreCommand(BookStoreDbContext context)
+        public UpdateGenreCommand(IBookStoreDbContext context)
         {
             _context = context;
         }
@@ -24,16 +24,16 @@ namespace WebApi.Application.GenreOperations.Commands.UpdateGenre
             if (_context.Genres.Any(c => c.Name.ToLower() == Model.Name.ToLower() && c.Id != GenreId))
                 throw new InvalidOperationException("Aynı isimli kitap türü zaten mevcut");
 
-            genre.Name = String.IsNullOrEmpty(Model.Name.Trim()) ? genre.Name : Model.Name;
+            genre.Name = string.IsNullOrEmpty(Model.Name.Trim()) ? genre.Name : Model.Name;
             genre.IsActive = Model.IsActive;
             _context.SaveChanges();
         }
+    }
 
-        public class UpdateGenreModel
-        {
-            public string Name { get; set; }
-            public bool IsActive { get; set; } = true;
-        }
+    public class UpdateGenreModel
+    {
+        public string Name { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 }
 
