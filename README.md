@@ -1,2 +1,2 @@
 # BookStore
-www.patika.dev .net Core Author Controller Eklenmesi
+www.patika.dev .net Core Proje testlerinin yazılması
