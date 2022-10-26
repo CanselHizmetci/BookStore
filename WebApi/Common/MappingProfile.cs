@@ -8,6 +8,7 @@ using WebApi.Application.AuthorOperations.Commands.CreateAuthor;
 using WebApi.Application.BookOperations.Commands.CreateBook;
 using WebApi.Application.BookOperations.Queries.GetById;
 using WebApi.Application.BookOperations.Queries.GetBooks;
+using WebApi.Application.UserOperations.Commands.CreateUser;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,6 +27,7 @@ namespace WebApi.Common
             CreateMap<Author, AuthorsViewModel>();
             CreateMap<Author, AuthorViewModel>();
             CreateMap<CreateAuthorModel, Author>();
+            CreateMap<CreateUserModel, User>();
         }
     }
 }

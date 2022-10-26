@@ -12,6 +12,7 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="FluentValidation" Version="11.2.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.10" />
   </ItemGroup>
 
   <ItemGroup>
@@ -51,6 +52,14 @@
     <None Remove="Application\AuthorOperations\Commands\UpdateAuthor\" />
     <None Remove="Application\AuthorOperations\Queries\GetAuthors\" />
     <None Remove="Application\AuthorOperations\Queries\GetAuthorDetail\" />
+    <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <None Remove="Application\UserOperations\" />
+    <None Remove="Application\UserOperations\Commands\" />
+    <None Remove="Application\UserOperations\Commands\CreateUser\" />
+    <None Remove="Application\UserOperations\Commands\CreateToken\" />
+    <None Remove="TokenOperations\" />
+    <None Remove="TokenOperations\Models\" />
+    <None Remove="Application\UserOperations\Commands\RefreshToken\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -83,5 +92,12 @@
     <Folder Include="Application\AuthorOperations\Commands\UpdateAuthor\" />
     <Folder Include="Application\AuthorOperations\Queries\GetAuthors\" />
     <Folder Include="Application\AuthorOperations\Queries\GetAuthorDetail\" />
+    <Folder Include="Application\UserOperations\" />
+    <Folder Include="Application\UserOperations\Commands\" />
+    <Folder Include="Application\UserOperations\Commands\CreateUser\" />
+    <Folder Include="Application\UserOperations\Commands\CreateToken\" />
+    <Folder Include="TokenOperations\" />
+    <Folder Include="TokenOperations\Models\" />
+    <Folder Include="Application\UserOperations\Commands\RefreshToken\" />
   </ItemGroup>
 </Project>
